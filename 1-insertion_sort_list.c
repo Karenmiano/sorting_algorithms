@@ -1,5 +1,9 @@
 #include "sort.h"
-
+/**
+ * insertion_sort_list - sorts a doubly linked list by insertion
+ * @list: pointer to pointer to head node
+ * Return: nothing
+ */
 void insertion_sort_list(listint_t **list)
 {
 	listint_t *node1, *node2, *temp1, *temp2;
