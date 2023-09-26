@@ -31,7 +31,7 @@ size_t partitionLomuto(int *array, size_t lowerbound, size_t upperbound)
 			swap(array + i, array + current);
 		}
 	}
-	swap(array + i + 1, array + upperbound);
+	swap(array + (i + 1), array + upperbound);
 	return (i + 1);
 }
 /**
