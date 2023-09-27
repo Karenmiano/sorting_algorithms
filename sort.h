@@ -21,8 +21,8 @@ void swap(int *a, int *b);
 void print_array(const int *array, size_t size);
 void print_list(const listint_t *list);
 void selection_sort(int *array, size_t size);
+int partitionLomuto(int *array, int lowerbound, int upperbound, size_t size);
+void quickSortLomuto(int *array, int lowerbound, int upperbound, size_t size);
 void quick_sort(int *array, size_t size);
-void quickSortLomuto(int *array, size_t lowerbound, size_t upperbound);
-size_t partitionLomuto(int *array, size_t lowerbound,size_t upperbound);
 
 #endif

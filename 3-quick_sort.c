@@ -2,36 +2,42 @@
 
 void quick_sort(int *array, size_t size)
 {
-	quickSortLomuto(array, 0, size - 1);
+	quickSortLomuto(array, 0, size - 1, size);
 }
 
-void quickSortLomuto(int *array, size_t lowerbound, size_t upperbound)
+void quickSortLomuto(int *array, int lowerbound, int upperbound, size_t size)
 {
-	size_t partition;
+	int partition;
+
 	if (lowerbound < upperbound)
 	{
-		partition = partitionLomuto(array, lowerbound, upperbound);
+		partition = partitionLomuto(array, lowerbound, upperbound, size);
 
-		quickSortLomuto(array, lowerbound, partition - 1);
-		quickSortLomuto(array, partition + 1, upperbound);
+		quickSortLomuto(array, lowerbound, partition - 1, size);
+		quickSortLomuto(array, partition + 1, upperbound, size);
 	}
 }
 
-size_t partitionLomuto(int *array, size_t lowerbound, size_t upperbound)
+int partitionLomuto(int *array, int lowerbound, int upperbound, size_t size)
 {
 	int pivot = array[upperbound];
-	size_t i = lowerbound - 1;
-	size_t current;
+	int i = lowerbound - 1;
+	int current;
 
-	for (current = lowerbound; current < upperbound; current++)
+	for (current = lowerbound; current <= upperbound - 1; current++)
 	{
 		if (array[current] <= pivot)
 		{
 			i++;
-			swap(array + i, array + current);
+			swap(&array[i], &array[current]);
+			if (i != current)
+				print_array(array, size);
+
 		}
 	}
-	swap(array + (i + 1), array + upperbound);
+	swap(&array[i + 1], &array[upperbound]);
+	if (i + 1 != upperbound)
+		print_array(array, size);
 	return (i + 1);
 }
 /**
